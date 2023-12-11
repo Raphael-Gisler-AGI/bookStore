@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified">
+	<Dialog id="bookDialog" title ="create">
+		<VBox class="sapUiResponsiveMargin">
+            <Label text="title"/>
+			<Input width="100%" value="{title}"/>
+			<Label text="tag"/>
+			<Select items="{/Genres}" selectedKey="{genre_ID}" forceSelection="false">
+				<core:Item key="{ID}" text="{name}"/>
+			</Select>
+		</VBox>
+		<beginButton>
+			<Button text="save" press=".onPressSave"/>
+		</beginButton>
+		<endButton>
+			<Button text="cancle" press=".onPressCancle"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

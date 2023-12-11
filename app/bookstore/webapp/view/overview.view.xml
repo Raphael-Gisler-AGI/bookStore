@@ -1,0 +1,12 @@
+<mvc:View controllerName="bookstore.controller.overview"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Button icon="sap-icon://add" press=".onPressOpenDialog"/>
+            <List id="booksList">
+                <StandardListItem title="{title}" description="{genre/name}" type="Active" highlight="{= ${IsActiveEntity} === 'No' ? 'Information' : 'None'}" press="onPressListItem" id="idListTemplate"/>
+            </List>
+        </content>
+    </Page>
+</mvc:View>
