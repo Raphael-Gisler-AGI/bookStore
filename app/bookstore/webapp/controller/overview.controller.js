@@ -34,6 +34,10 @@ sap.ui.define(
       onPressListItem(oEvent) {
         const context = oEvent.getSource().getBindingContext();
         if (context.getProperty("IsActiveEntity")) {
+          // This part makes the object in the db to a draft
+          // In this situation i search for an object in the table books with id === to the it of the context which is an active entity (or a draft)
+          // and i execute the bookstore.draftEdit(...) function on that object
+          // if you would only write /Books(ID=XXXXXXXXX,IsActiveEntity=true into the URL it would return the draft as an object
           this.getOwnerComponent()
             .getModel()
             .bindContext(
@@ -58,6 +62,7 @@ sap.ui.define(
 
       async _openDialog(sPath = undefined) {
         if (!sPath) {
+          // this is how you create a draft or an entry depending on if drafts are enabled
           let oListBinding = this.getOwnerComponent()
             .getModel()
             .bindList("/Books");
@@ -81,11 +86,14 @@ sap.ui.define(
         });
       },
       _cancleDialog(oEvent) {
+        // this is how you delete a draft or an entry depending on if drafts are enabled
         oEvent.getSource().getBindingContext().delete();
         this._closeDialog();
       },
       _saveDialog(oEvent) {
         const context = oEvent.getSource().getBindingContext();
+        //this part makes a draft to an object in the db
+        //same as in the draftEdit but its a different function
         this.getOwnerComponent()
           .getModel()
           .bindContext(
