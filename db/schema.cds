@@ -7,7 +7,7 @@ namespace db;
 
 entity Books : cuid, managed {
     title   : String                    @mandatory;
-    genre   : Association to one Genres @mandatory @assert.target;
+    genre   : Association to one Genres @mandatory;
     storage : Integer default 1         @assert.range: [
         0,
         100

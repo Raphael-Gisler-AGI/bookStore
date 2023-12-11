@@ -1,3 +1,4 @@
+//npm i cds-swagger-ui-express
 const cds_swagger = require("cds-swagger-ui-express");
 const cds = require("@sap/cds");
 let app;

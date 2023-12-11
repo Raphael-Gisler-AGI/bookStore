@@ -16,7 +16,8 @@
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-bookstore": "cds watch --open bookstore/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-bookstore": "cds watch --open bookstore/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-adiufg": "cds watch --open adiufg/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {

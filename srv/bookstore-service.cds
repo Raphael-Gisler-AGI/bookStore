@@ -4,6 +4,7 @@ service bookstore {
     @odata.draft.enabled
     entity Books  as
         projection on db.Books {
+            ID,
             title,
             genre
         };
