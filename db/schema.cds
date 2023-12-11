@@ -1,13 +1,17 @@
-using { managed, cuid } from '@sap/cds/common';
+using {
+    managed,
+    cuid
+} from '@sap/cds/common';
+
 namespace db;
 
 entity Books : cuid, managed {
-    title : String;
-    genre : Association to one Genres;
+    title : String @mandatory;
+    genre : Association to one Genres @mandatory;
 }
 
 entity Genres : cuid, managed {
-    name : String;
-    books : Composition of many Books on books.genre = $self
+    name  : String @mandatory;
+    books : Composition of many Books
+                on books.genre = $self
 }
-
