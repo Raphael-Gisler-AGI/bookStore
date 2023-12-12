@@ -12,9 +12,9 @@ sap.ui.define(
 
     return Controller.extend("bookstore.controller.overview", {
       onInit() {
-        this.byId("booksList").bindItems({
+        this.byId("booksTable").bindItems({
           path: "/Books",
-          template: this.byId("idListTemplate"),
+          template: this.byId("template"),
           filters: new Filter({
             filters: [
               new Filter(
@@ -29,32 +29,32 @@ sap.ui.define(
         });
       },
       onPressOpenDialog() {
-        this._openDialog();
+        this._openDialog(undefined);
       },
-      onPressListItem(oEvent) {
+      onPressEdit(oEvent) {
         const context = oEvent.getSource().getBindingContext();
         if (context.getProperty("IsActiveEntity")) {
           // This part makes the object in the db to a draft
-          // In this situation i search for an object in the table books with id === to the it of the context which is an active entity (or a draft)
           // and i execute the bookstore.draftEdit(...) function on that object
-          // if you would only write /Books(ID=XXXXXXXXX,IsActiveEntity=true into the URL it would return the draft as an object
+          // if you would only write "/Books(ID=XXXXXXXXX,IsActiveEntity=xxxx)" (this is what context.getPath() is equal to) into the URL it would return the draft as an object
           this.getOwnerComponent()
             .getModel()
             .bindContext(
-              `/Books(ID=${context.getProperty(
-                "ID"
-              )},IsActiveEntity=true)/bookstore.draftEdit(...)`,
+              `${context.getPath()}/bookstore.draftEdit(...)`,
               context
             )
             .execute();
-          this.getOwnerComponent().getModel().refresh();
-          return;
         }
-
-        this._openDialog(oEvent.getSource().getBindingContextPath());
+        // i send the path for the draft so that i edit it and not the original object
+        this._openDialog(
+          `/Books(ID=${context.getProperty("ID")},IsActiveEntity=false)`
+        );
       },
-      onPressCancle(oEvent) {
-        this._cancleDialog(oEvent);
+      onPressDelete(oEvent) {
+        oEvent.getSource().getBindingContext().delete();
+      },
+      onPressDiscard(oEvent) {
+        this._discardDialog(oEvent);
       },
       onPressSave(oEvent) {
         this._saveDialog(oEvent);
@@ -85,7 +85,7 @@ sap.ui.define(
           oBookDialog.bindElement(sPath);
         });
       },
-      _cancleDialog(oEvent) {
+      _discardDialog(oEvent) {
         // this is how you delete a draft or an entry depending on if drafts are enabled
         oEvent.getSource().getBindingContext().delete();
         this._closeDialog();
@@ -97,16 +97,18 @@ sap.ui.define(
         this.getOwnerComponent()
           .getModel()
           .bindContext(
-            `/Books(ID=${context.getProperty(
-              "ID"
-            )},IsActiveEntity=false)/bookstore.draftActivate(...)`,
+            `${context.getPath()}/bookstore.draftActivate(...)`,
             context
           )
           .execute();
         this._closeDialog();
       },
       _closeDialog() {
-        this.byId("bookDialog").close();
+        const dialog = this.byId("bookDialog");
+        //the error is wrong unbindElement does not need a parameter. the docu says it needs the model name but because our main service doesnt have a name, unless you give it one you need to leave it empty
+        //you need to do this because once you refresh the model it also refreshes what is bound to the model but because that object doesnt exsist anymore this throws an error.
+        dialog.unbindElement();
+        dialog.close();
         this.getOwnerComponent().getModel().refresh();
       },
     });

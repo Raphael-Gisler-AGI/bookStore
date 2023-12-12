@@ -4,9 +4,31 @@
     <Page id="page" title="{i18n>title}">
         <content>
             <Button icon="sap-icon://add" press=".onPressOpenDialog"/>
-            <List id="booksList">
-                <StandardListItem title="{title}" description="{genre/name}" type="Active" highlight="{= ${IsActiveEntity} === 'No' ? 'Information' : 'None'}" press="onPressListItem" id="idListTemplate"/>
-            </List>
+            <Table id="booksTable">
+                <columns>
+                    <Column>
+                        <Label text="Title" />
+                    </Column>
+                    <Column>
+                        <Label text="Genre" />
+                    </Column>
+                    <Column>
+                        <Label text="Edit" />
+                    </Column>
+                    <Column>
+                        <Label text="Delete" />
+                    </Column>
+                </columns>
+                <ColumnListItem id="template" highlight="{= ${IsActiveEntity} === 'No' ? 'Information' : 'None'}">
+                    <cells>
+                        <Text text="{title}"/>
+                        <Text text="{genre/name}"/>
+                        <Button icon="sap-icon://edit" press="onPressEdit" />
+                        <Button icon="sap-icon://delete" press="onPressDelete" enabled="{IsActiveEntity}" tooltip="{= ${IsActiveEntity} === 'Yes' ? 'delete' : 'you cant delete objects that have drafts unless you find a workaround'}"/>
+                    </cells>
+                </ColumnListItem>
+                
+            </Table>
         </content>
     </Page>
 </mvc:View>

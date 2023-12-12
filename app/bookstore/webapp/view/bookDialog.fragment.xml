@@ -14,7 +14,7 @@
 			<Button text="save" press=".onPressSave"/>
 		</beginButton>
 		<endButton>
-			<Button text="cancle" press=".onPressCancle"/>
+			<Button text="discard" press=".onPressDiscard"/>
 		</endButton>
 	</Dialog>
 </core:FragmentDefinition>
