@@ -1,0 +1,33 @@
+<mvc:View controllerName="batch.controller.overview"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Button icon="sap-icon://add" press=".onPressOpenDialog"/>
+            <Table id="booksTable">
+                <columns>
+                    <Column>
+                        <Label text="Title" />
+                    </Column>
+                    <Column>
+                        <Label text="Genre" />
+                    </Column>
+                    <Column>
+                        <Label text="Edit" />
+                    </Column>
+                    <Column>
+                        <Label text="Delete" />
+                    </Column>
+                </columns>
+                <ColumnListItem id="template">
+                    <cells>
+                        <Text text="{title}"/>
+                        <Text text="{genre/name}"/>
+                        <Button icon="sap-icon://edit" press="onPressEdit" />
+                        <Button icon="sap-icon://delete" press="onPressDelete"/>
+                    </cells>
+                </ColumnListItem>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

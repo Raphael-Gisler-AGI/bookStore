@@ -77,7 +77,7 @@ sap.ui.define(
           });
           this.pBookDialog.then((oBookDialog) => {
             this.getView().addDependent(oBookDialog);
-            oBookDialog.bindElement(sPath);
+            oBookDialog.bindElement(sPath)
           });
         }
         this.pBookDialog.then((oBookDialog) => {

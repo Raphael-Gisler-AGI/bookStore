@@ -12,12 +12,13 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1.4.0",
-    "@sap/ux-specification": "^1.120.0"
+    "@sap/ux-specification": "^1.120.1"
   },
   "scripts": {
     "start": "cds-serve",
     "watch-bookstore": "cds watch --open bookstore/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-adiufg": "cds watch --open adiufg/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-adiufg": "cds watch --open adiufg/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-batch": "cds watch --open batch/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {

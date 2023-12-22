@@ -1,7 +1,7 @@
 {
   "_version": "1.58.0",
   "sap.app": {
-    "id": "bookstore",
+    "id": "batch",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,11 +13,11 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
       "version": "1.11.4",
-      "toolsId": "142950fe-0c73-464b-a4d3-6cfcf2166b86"
+      "toolsId": "8fbe5111-4450-4fb8-a071-af5207985b83"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/bookstore/",
+        "uri": "/odata/v4/batch/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -46,7 +46,7 @@
   "sap.ui5": {
     "flexEnabled": false,
     "dependencies": {
-      "minUI5Version": "1.120.1",
+      "minUI5Version": "1.120.3",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -66,7 +66,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "bookstore.i18n.i18n"
+          "bundleName": "batch.i18n.i18n"
         }
       },
       "": {
@@ -76,8 +76,7 @@
           "synchronizationMode": "None",
           "operationMode": "Server",
           "autoExpandSelect": true,
-          "earlyRequests": true,
-          "useBatch": true
+          "earlyRequests": true
         }
       }
     },
@@ -93,7 +92,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "bookstore.view",
+        "viewPath": "batch.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -118,7 +117,7 @@
       }
     },
     "rootView": {
-      "viewName": "bookstore.view.App",
+      "viewName": "batch.view.App",
       "type": "XML",
       "async": true,
       "id": "App"
