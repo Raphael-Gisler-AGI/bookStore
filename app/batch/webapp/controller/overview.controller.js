@@ -1,9 +1,13 @@
 sap.ui.define(
-  ["sap/ui/core/mvc/Controller"],
+  [
+    "sap/ui/core/mvc/Controller",
+    "sap/ui/model/Filter",
+    "sap/ui/model/FilterOperator",
+  ],
   /**
    * @param {typeof sap.ui.core.mvc.Controller} Controller
    */
-  function (Controller) {
+  function (Controller, Filter, FilterOperator) {
     "use strict";
 
     return Controller.extend("batch.controller.overview", {
@@ -17,7 +21,9 @@ sap.ui.define(
         this._openDialog(undefined);
       },
       onPressEdit(oEvent) {
-        this._openDialog(oEvent.getSource().getBindingContext().getPath());
+        this._openDialog(
+          oEvent.getSource().getBindingContext().getProperty("ID")
+        );
       },
       onPressDelete(oEvent) {
         oEvent.getSource().getBindingContext().delete();
@@ -29,7 +35,7 @@ sap.ui.define(
         this._saveDialog();
       },
 
-      async _openDialog(sPath = undefined) {
+      async _openDialog(sID = undefined) {
         if (!this.pBookDialog) {
           this.pBookDialog = this.loadFragment({
             name: "batch.view.bookDialog",
@@ -40,28 +46,43 @@ sap.ui.define(
         }
         this.pBookDialog.then((oBookDialog) => {
           oBookDialog.open();
-          // if we arent editing we get the binding from the dialog and than create a new item on it
-          // look at the comment in the bookDialog to understand why this works
-          if (!sPath) {
-            const olistBinding = oBookDialog.getBinding("content");
-            olistBinding.create();
-          } else {
-          // else we bind one object to it
-            oBookDialog.bindObject({
-              path: sPath,
+          // We first create a new binding for content on our Dialog.
+          // This has to be done because once we edit we overwrite this binding and then we can create anymore.
+          if (!sID) {
+            oBookDialog.bindAggregation("content", {
+              path: "/Books",
+              length: 1,
+              template: this.byId("idVBox"),
               parameters: {
-                $$updateGroupId: 'create'
-                }
-            })
+                $$updateGroupId: "book",
+              },
+            });
+            // After creating the binding we create a new item on it.
+            oBookDialog.getBinding("content").create();
+            // Note that we are binding a list to the dialogue. Therefore there is no ID in the path.
+            // We do this because we can only create objects on a List and not on single Bindings.
+            // We limit the length of the array that is displayed to 1 with: "length: 1"
+            // because items that are created are always at first place its the only item shown.
+          } else {
+            // In case of editing we do the same thing but we filter for the clicked item wia its ID
+            // We also dont need to limit the length this time because IDs should be unique.
+            oBookDialog.bindAggregation("content", {
+              path: "/Books",
+              template: this.byId("idVBox"),
+              parameters: {
+                $$updateGroupId: "book",
+              },
+              filters: new Filter("ID", FilterOperator.EQ, sID),
+            });
           }
         });
       },
       _discardDialog() {
-        this.getOwnerComponent().getModel().resetChanges("create");
+        this.getOwnerComponent().getModel().resetChanges("book");
         this._closeDialog();
       },
       _saveDialog() {
-        this.getOwnerComponent().getModel().submitBatch("create");
+        this.getOwnerComponent().getModel().submitBatch("book");
         this._closeDialog();
       },
       _closeDialog() {

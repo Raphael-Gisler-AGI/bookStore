@@ -2,17 +2,8 @@
 	xmlns:core="sap.ui.core"
 	xmlns:u="sap.ui.unified">
 
-	<!-- the content in this Dialog is bound to Books but only the first one is displayed. 
-	We do this because when we create a new book on this binding it will automatically become the top element.
-	We also give it a groupe id so we can subit or reset any changes-->
-	<Dialog id="bookDialog" title ="create" content="{
-		path:'/Books',
-		length: 1,
-		parameters: {
-			$$updateGroupId: 'create'
-		  }
-	}">
-		<VBox class="sapUiResponsiveMargin">
+	<Dialog id="bookDialog" title ="create" content="{path:'/Books', length: 1, parameters: {$$updateGroupId: 'create'}, templateShareable: true}">
+		<VBox class="sapUiResponsiveMargin" id="idVBox">
             <Label text="title"/>
 			<Input width="100%" value="{title}"/>
 			<Label text="tag"/>
