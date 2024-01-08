@@ -18,7 +18,8 @@
     "start": "cds-serve",
     "watch-bookstore": "cds watch --open bookstore/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-adiufg": "cds watch --open adiufg/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-batch": "cds watch --open batch/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-batch": "cds watch --open batch/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-draft": "cds watch --open draft/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {

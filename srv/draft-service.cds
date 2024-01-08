@@ -1,6 +1,6 @@
 using {db} from '../db/schema';
 
-service bookstore {
+service drafts {
     @odata.draft.enabled
     entity Books  as
         projection on db.Books {

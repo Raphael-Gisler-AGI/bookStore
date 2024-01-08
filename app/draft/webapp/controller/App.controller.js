@@ -5,7 +5,7 @@ sap.ui.define(
     function(BaseController) {
       "use strict";
   
-      return BaseController.extend("bookstore.controller.App", {
+      return BaseController.extend("draft.controller.App", {
         onInit: function() {
         }
       });
