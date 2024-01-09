@@ -45,14 +45,19 @@ sap.ui.define(
         this.pBookDialog.then(async (oBookDialog) => {
           oBookDialog.open();
           if (!sPath) {
-            const newBook = this.getOwnerComponent()
+            // first we bind a new list with an updateGroupId and create a new object on it.
+            // we cant use any of the bind... functions (bindObject(), bindAggregation()...) because the newly created object is transient.
+            // because create returns a context we can use the setBindingContext() function with the sole parameter being the new object.
+            const oNewBook = this.getOwnerComponent()
               .getModel()
               .bindList("/Books", undefined, undefined, undefined, {
                 $$updateGroupId: "book",
               })
               .create();
-            oBookDialog.setBindingContext(newBook);
+            oBookDialog.setBindingContext(oNewBook);
           } else {
+            // To edit, bind the object to our dialog by using an updateGroupId.
+            // This can be accomplished with any function that allows binding a single object. I've chosen bindElement().
             oBookDialog.bindElement(sPath, {
               $$updateGroupId: "book",
             });
