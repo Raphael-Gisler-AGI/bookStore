@@ -2,7 +2,7 @@
 	xmlns:core="sap.ui.core"
 	xmlns:u="sap.ui.unified">
 
-	<Dialog id="bookDialog" title ="create" content="{path:'/Books', length: 1, parameters: {$$updateGroupId: 'create'}, templateShareable: true}">
+	<Dialog id="bookDialog" title ="create">
 		<VBox class="sapUiResponsiveMargin" id="idVBox">
             <Label text="title"/>
 			<Input width="100%" value="{title}"/>

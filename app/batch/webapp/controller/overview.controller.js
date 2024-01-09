@@ -21,9 +21,7 @@ sap.ui.define(
         this._openDialog(undefined);
       },
       onPressEdit(oEvent) {
-        this._openDialog(
-          oEvent.getSource().getBindingContext().getProperty("ID")
-        );
+        this._openDialog(oEvent.getSource().getBindingContext().getPath());
       },
       onPressDelete(oEvent) {
         oEvent.getSource().getBindingContext().delete();
@@ -35,7 +33,7 @@ sap.ui.define(
         this._saveDialog();
       },
 
-      async _openDialog(sID = undefined) {
+      async _openDialog(sPath = undefined) {
         if (!this.pBookDialog) {
           this.pBookDialog = this.loadFragment({
             name: "batch.view.bookDialog",
@@ -44,35 +42,19 @@ sap.ui.define(
             this.getView().addDependent(oBookDialog);
           });
         }
-        this.pBookDialog.then((oBookDialog) => {
+        this.pBookDialog.then(async (oBookDialog) => {
           oBookDialog.open();
-          // We first create a new binding for content on our Dialog.
-          // This has to be done because once we edit we overwrite this binding and then we can create anymore.
-          if (!sID) {
-            oBookDialog.bindAggregation("content", {
-              path: "/Books",
-              length: 1,
-              template: this.byId("idVBox"),
-              parameters: {
+          if (!sPath) {
+            const newBook = this.getOwnerComponent()
+              .getModel()
+              .bindList("/Books", undefined, undefined, undefined, {
                 $$updateGroupId: "book",
-              },
-            });
-            // After creating the binding we create a new item on it.
-            oBookDialog.getBinding("content").create();
-            // Note that we are binding a list to the dialogue. Therefore there is no ID in the path.
-            // We do this because we can only create objects on a List and not on single Bindings.
-            // We limit the length of the array that is displayed to 1 with: "length: 1"
-            // because items that are created are always at first place its the only item shown.
+              })
+              .create();
+            oBookDialog.setBindingContext(newBook);
           } else {
-            // In case of editing we do the same thing but we filter for the clicked item wia its ID
-            // We also dont need to limit the length this time because IDs should be unique.
-            oBookDialog.bindAggregation("content", {
-              path: "/Books",
-              template: this.byId("idVBox"),
-              parameters: {
-                $$updateGroupId: "book",
-              },
-              filters: new Filter("ID", FilterOperator.EQ, sID),
+            oBookDialog.bindElement(sPath, {
+              $$updateGroupId: "book",
             });
           }
         });
