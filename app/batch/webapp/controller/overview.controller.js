@@ -34,6 +34,9 @@ sap.ui.define(
       },
 
       async _openDialog(sPath = undefined) {
+        // the use can press esc to close the dialog and in that case we never reset the created object.
+        // if the user creates and saves a new one both would be created, hence we have to reset or delete the previously created object
+        this.getOwnerComponent().getModel().resetChanges("book");
         if (!this.pBookDialog) {
           this.pBookDialog = this.loadFragment({
             name: "batch.view.bookDialog",
