@@ -1,1 +1,1 @@
-using drafts as service from '../../srv/draft-service';
+using DraftService as service from '../../srv/draft-service';

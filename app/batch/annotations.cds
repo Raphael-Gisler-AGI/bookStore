@@ -1,1 +1,1 @@
-using batch as service from '../../srv/batch-service';
+using BatchService as service from '../../srv/batch-service';

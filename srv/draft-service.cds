@@ -1,16 +1,15 @@
 using {db} from '../db/schema';
 
-service drafts {
+service DraftService {
     @odata.draft.enabled
     entity Books  as
-        projection on db.Books {
-            ID,
-            title,
-            genre
-        };
+        projection on db.Books;
 
     @readonly
-    entity Genres as projection on db.Genres;
+    entity Genres as projection on db.Genres {
+        ID,
+        name,
+        books,
+    };
 
-    function getStorage(book : UUID) returns Integer;
 }

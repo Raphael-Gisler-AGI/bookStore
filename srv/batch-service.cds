@@ -1,6 +1,6 @@
 using {db} from '../db/schema';
 
-service batch {
+service BatchService {
     entity Books  as
         projection on db.Books {
             ID,
@@ -9,5 +9,9 @@ service batch {
         };
 
     @readonly
-    entity Genres as projection on db.Genres;
+    entity Genres as projection on db.Genres {
+        ID,
+        name,
+        books,
+    };
 }

@@ -17,7 +17,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/drafts/",
+        "uri": "/odata/v4/draft/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -112,7 +112,7 @@
           "transition": "slide",
           "clearControlAggregation": false,
           "viewId": "Overview",
-          "viewName": "overview"
+          "viewName": "Overview"
         }
       }
     },

@@ -8,10 +8,6 @@ namespace db;
 entity Books : cuid, managed {
     title   : String;
     genre   : Association to one Genres;
-    storage : Integer default 1 @assert.range: [
-        0,
-        100
-    ]
 }
 
 entity Genres : cuid, managed {
