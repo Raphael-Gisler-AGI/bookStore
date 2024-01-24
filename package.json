@@ -19,7 +19,8 @@
     "watch-bookstore": "cds watch --open bookstore/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-adiufg": "cds watch --open adiufg/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-batch": "cds watch --open batch/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-draft": "cds watch --open draft/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-draft": "cds watch --open draft/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-rest": "cds watch --open rest/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -31,5 +32,8 @@
         "schema_evolution": "auto"
       }
     }
-  }
+  },
+  "sapux": [
+    "app/rest"
+  ]
 }

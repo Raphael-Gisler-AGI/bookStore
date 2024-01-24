@@ -6,12 +6,21 @@ using {
 namespace db;
 
 entity Books : cuid, managed {
-    title   : String;
-    genre   : Association to one Genres;
+    title : String;
+    genre : Association to one Genres;
 }
 
 entity Genres : cuid, managed {
     name  : String @mandatory;
     books : Composition of many Books
                 on books.genre = $self
+}
+
+@readonly
+entity Comments {
+        postId : Integer;
+    key ID     : Integer;
+        name   : String;
+        email  : String;
+        body   : String;
 }

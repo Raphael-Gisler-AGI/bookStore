@@ -1,0 +1,1 @@
+using RestService as service from '../../srv/rest-service';
