@@ -8,7 +8,7 @@ sap.ui.define(
   function (Controller) {
     "use strict";
 
-    return Controller.extend("batch.controller.overview", {
+    return Controller.extend("batch.controller.Overview", {
       onInit: function () {
         this.byId("booksTable").bindItems({
           path: "/Books",

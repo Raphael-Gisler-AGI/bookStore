@@ -23,8 +23,8 @@
                     <cells>
                         <Text text="{title}"/>
                         <Text text="{genre/name}"/>
-                        <Button icon="sap-icon://edit" press="onPressEdit" />
-                        <Button icon="sap-icon://delete" press="onPressDelete" enabled="{IsActiveEntity}" tooltip="{= ${IsActiveEntity} === 'Yes' ? 'delete' : 'you cant delete objects that have drafts unless you find a workaround'}"/>
+                        <Button icon="sap-icon://edit" press=".onPressEdit" />
+                        <Button icon="sap-icon://delete" press=".onPressDelete" enabled="{IsActiveEntity}" tooltip="{= ${IsActiveEntity} === 'Yes' ? 'delete' : 'you cant delete objects that have drafts unless you find a workaround'}"/>
                     </cells>
                 </ColumnListItem>
                 

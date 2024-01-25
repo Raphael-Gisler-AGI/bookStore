@@ -10,7 +10,7 @@ sap.ui.define(
     function (Controller, Filter, FilterOperator) {
       "use strict";
   
-      return Controller.extend("draft.controller.overview", {
+      return Controller.extend("draft.controller.Overview", {
         onInit() {
           
           this.byId("booksTable").bindItems({

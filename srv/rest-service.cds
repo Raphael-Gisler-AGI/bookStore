@@ -3,7 +3,7 @@ using {db} from '../db/schema';
 @Capabilities.KeyAsSegmentSupported : true
 service RestService {
     @readonly
-    entity Comments as projection on db.Comments;
+    entity Comments as projection on db.Comments
 }
 
 // With the KeyAsSegmentSupported capability, the service accepts requests to get single resources with the ID provided as path segment,

@@ -11,5 +11,4 @@ service DraftService {
         name,
         books,
     };
-
 }

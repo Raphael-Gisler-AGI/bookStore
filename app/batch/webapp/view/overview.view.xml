@@ -23,8 +23,8 @@
                     <cells>
                         <Text text="{title}"/>
                         <Text text="{genre/name}"/>
-                        <Button icon="sap-icon://edit" press="onPressEdit" />
-                        <Button icon="sap-icon://delete" press="onPressDelete"/>
+                        <Button icon="sap-icon://edit" press=".onPressEdit" />
+                        <Button icon="sap-icon://delete" press=".onPressDelete"/>
                     </cells>
                 </ColumnListItem>
             </Table>

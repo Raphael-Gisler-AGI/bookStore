@@ -12,7 +12,7 @@ entity Books : cuid, managed {
 
 entity Genres : cuid, managed {
     name  : String @mandatory;
-    books : Composition of many Books
+    books : Association to many Books
                 on books.genre = $self
 }
 
