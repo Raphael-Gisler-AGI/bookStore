@@ -1,14 +1,1 @@
-{
-    "odata": {
-      "flavor": "x4"
-    },
-    "requires": {
-      "CommentsAPI": {
-        "kind": "rest",
-        "impl": "srv/external/rest-service.js",
-        "credentials": {
-          "url": "https://jsonplaceholder.typicode.com"
-        }
-      }
-    }
-  }
+{}

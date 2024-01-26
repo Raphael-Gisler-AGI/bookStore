@@ -1,7 +1,7 @@
 {
   "_version": "1.59.0",
   "sap.app": {
-    "id": "rest",
+    "id": "fpm",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -11,13 +11,13 @@
     "description": "{{appDescription}}",
     "resources": "resources.json",
     "sourceTemplate": {
-      "id": "@sap/generator-fiori:lrop",
+      "id": "@sap/generator-fiori:fpm",
       "version": "1.12.2",
-      "toolsId": "a24cc1b9-6c28-4010-bc13-9d9e8987a3c7"
+      "toolsId": "fde6e5ed-5088-4950-8596-8de05ea9d59c"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/rest/",
+        "uri": "/odata/v4/admin/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -43,7 +43,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.120.4",
       "libs": {
@@ -61,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "rest.i18n.i18n"
+          "bundleName": "fpm.i18n.i18n"
         }
       },
       "": {
@@ -85,59 +85,47 @@
     "routing": {
       "routes": [
         {
+          "name": "BooksMain",
           "pattern": ":?query:",
-          "name": "CommentsList",
-          "target": "CommentsList"
+          "target": "BooksMain"
         },
         {
-          "pattern": "Comments({key}):?query:",
-          "name": "CommentsObjectPage",
-          "target": "CommentsObjectPage"
+          "name": "BooksObjectPage",
+          "pattern": "Books({BooksKey}):?query:",
+          "target": "BooksObjectPage"
         }
       ],
       "targets": {
-        "CommentsList": {
+        "BooksMain": {
           "type": "Component",
-          "id": "CommentsList",
-          "name": "sap.fe.templates.ListReport",
+          "id": "BooksMain",
+          "name": "sap.fe.core.fpm",
           "options": {
             "settings": {
-              "contextPath": "/Comments",
-              "variantManagement": "Page",
+              "viewName": "fpm.ext.main.Main",
+              "contextPath": "/Books",
               "navigation": {
-                "Comments": {
+                "Books": {
                   "detail": {
-                    "route": "CommentsObjectPage"
+                    "route": "BooksObjectPage"
                   }
                 }
-              },
-              "controlConfiguration": {
-                "@com.sap.vocabularies.UI.v1.LineItem": {
-                  "tableSettings": {
-                    "enableExport": false
-                  }
-                }
-              },
-              "initialLoad": "Enabled"
+              }
             }
           }
         },
-        "CommentsObjectPage": {
+        "BooksObjectPage": {
           "type": "Component",
-          "id": "CommentsObjectPage",
+          "id": "BooksObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/Comments"
+              "navigation": {},
+              "contextPath": "/Books"
             }
           }
         }
       }
     }
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "transactional"
   }
 }
