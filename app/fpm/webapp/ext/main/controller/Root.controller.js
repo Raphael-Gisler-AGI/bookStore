@@ -13,6 +13,11 @@ sap.ui.define(["sap/fe/core/rootView/NavContainer.controller"], function (
       });
     },
 
+    onSelectSideNav(oEvent) {
+      const routeName = oEvent.getParameter("item").getKey();
+      this._getRouter().navTo(routeName);
+    },
+
     _getRouter() {
       return this.getAppComponent().getRouter();
     },

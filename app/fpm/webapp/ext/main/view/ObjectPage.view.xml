@@ -4,21 +4,8 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:macros="sap.fe.macros"
     controllerName="fpm.ext.main.controller.ObjectPage">
-    <f:DynamicPage>
-        <f:title>
-            <f:DynamicPageTitle>
-                <f:heading>
-                    <Title text="{i18n>appTitle}" />
-                </f:heading>
-                <f:expandedContent>
-                    <Label text="{i18n>appDescription}" />
-                </f:expandedContent>
-            </f:DynamicPageTitle>
-        </f:title>
-        <f:content>
-            <Panel>
-                <Text text="Object Page" />
-            </Panel>
-        </f:content>
-    </f:DynamicPage>
+    <macros:Form
+        id="annotation"
+        metaPath="@com.sap.vocabularies.UI.v1.FieldGroup#Details"
+        readOnly="true" />
 </mvc:View>

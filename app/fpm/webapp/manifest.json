@@ -95,6 +95,11 @@
           "target": "BooksMain"
         },
         {
+          "name": "BooksGenres",
+          "pattern": "Genres:?query:",
+          "target": "BooksGenres"
+        },
+        {
           "name": "BooksObjectPage",
           "pattern": "Books({BooksKey}):?query:",
           "target": "BooksObjectPage"
@@ -108,6 +113,24 @@
           "options": {
             "settings": {
               "viewName": "fpm.ext.main.view.Main",
+              "contextPath": "/Books",
+              "navigation": {
+                "Books": {
+                  "detail": {
+                    "route": "BooksObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "BooksGenres": {
+          "type": "Component",
+          "id": "BooksGenres",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "fpm.ext.main.view.Genres",
               "contextPath": "/Books",
               "navigation": {
                 "Books": {

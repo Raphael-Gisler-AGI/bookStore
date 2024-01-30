@@ -13,10 +13,16 @@
         </tnt:header>
         <tnt:sideContent>
             <tnt:SideNavigation id="sideNavigation">
-                <tnt:NavigationList>
+                <tnt:NavigationList
+                    itemSelect=".onSelectSideNav">
                     <tnt:NavigationListItem
                         key="BooksMain"
-                        text="Main" />
+                        icon="sap-icon://course-book"
+                        text="Books" />
+                    <tnt:NavigationListItem
+                        key="BooksGenres"
+                        icon="sap-icon://list"
+                        text="Genres" />
                 </tnt:NavigationList>
             </tnt:SideNavigation>
         </tnt:sideContent>

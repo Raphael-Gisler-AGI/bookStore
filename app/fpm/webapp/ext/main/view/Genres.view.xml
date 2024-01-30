@@ -1,0 +1,19 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:macros="sap.fe.macros"
+    controllerName="fpm.ext.main.controller.GenreList">
+    <Panel>
+        <macros:FilterBar
+            id="GenreFilterBar"
+            metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+            contextPath="/Genres"
+            liveMode="true" />
+        <macros:Table
+            id="GenreTable"
+            metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+            contextPath="/Genres"
+            filterBar="GenreFilterBar" />
+    </Panel>
+</mvc:View>
