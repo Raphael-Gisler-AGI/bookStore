@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1.4.0",
-    "@sap/ux-specification": "^1.120.1"
+    "@sap/ux-specification": "^1.120.2"
   },
   "scripts": {
     "start": "cds-serve",
@@ -20,7 +20,8 @@
     "watch-adiufg": "cds watch --open adiufg/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-batch": "cds watch --open batch/webapp/index.html?sap-ui-xx-viewCache=false",
     "watch-draft": "cds watch --open draft/webapp/index.html?sap-ui-xx-viewCache=false",
-    "watch-rest": "cds watch --open rest/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-rest": "cds watch --open rest/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-fpm": "cds watch --open fpm/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -34,6 +35,7 @@
     }
   },
   "sapux": [
-    "app/rest"
+    "app/rest",
+    "app/fpm"
   ]
 }

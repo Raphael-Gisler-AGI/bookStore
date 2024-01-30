@@ -1,15 +1,15 @@
 ## Application Details
 |               |
 | ------------- |
-|**Generation Date and Time**<br>Fri Jan 26 2024 08:31:07 GMT+0100 (Central European Standard Time)|
+|**Generation Date and Time**<br>Tue Jan 30 2024 08:48:47 GMT+0100 (Central European Standard Time)|
 |**App Generator**<br>@sap/generator-fiori-elements|
-|**App Generator Version**<br>1.12.2|
+|**App Generator Version**<br>1.11.4|
 |**Generation Platform**<br>Visual Studio Code|
 |**Template Used**<br>Custom Page V4|
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/odata/v4/admin/
 |**Module Name**<br>fpm|
-|**Application Title**<br>Flexible Programing Model|
+|**Application Title**<br>Flexible Programming Model|
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.120.4|
@@ -20,7 +20,7 @@
 
 ## fpm
 
-An SAP Fiori application.
+Showcasing the Flexible Programming Model
 
 ### Starting the generated app
 

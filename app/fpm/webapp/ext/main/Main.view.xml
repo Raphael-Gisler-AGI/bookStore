@@ -1,19 +1,33 @@
-<mvc:View xmlns:core="sap.ui.core"
-    xmlns:mvc="sap.ui.core.mvc"
+<mvc:View
     xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns:macros="sap.fe.macros"
-    xmlns:macrosTable="sap.fe.macros.table"
-    xmlns:html="http://www.w3.org/1999/xhtml" controllerName="fpm.ext.main.Main">
-    <Page id="Main" title="{i18n>MainTitle}">
-        <content>
-            <Panel headerText="Books">
-                <macros:FilterBar metaPath="@com.sap.vocabularies.UI.v1.SelectionFields" id="FilterBar" liveMode="true" />
-                <macros:Table metaPath="@com.sap.vocabularies.UI.v1.LineItem" readOnly="true" id="LineItemTable" filterBar="FilterBar">
-                    <macros:actions>
-                        <macrosTable:Action key="delete" text="Delete" press=".onPressDelete" placement="Before" anchor="DataFieldForAction::Service.toggleBoolean" requiresSelection="true"/>
-                    </macros:actions>
-                </macros:Table>
+    controllerName="fpm.ext.main.Main">
+    <f:DynamicPage>
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="{i18n>appTitle}" />
+                </f:heading>
+                <f:expandedContent>
+                    <Label text="{i18n>appDescription}" />
+                </f:expandedContent>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:content>
+            <Panel>
+                <macros:FilterBar
+                    id="BooksFilterBar"
+                    metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+                    contextPath="/Books"
+                    liveMode="true" />
+                <macros:Table
+                    id="BooksTable"
+                    metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+                    contextPath="/Books"
+                    filterBar="BooksFilterBar" />
             </Panel>
-        </content>
-    </Page>
+        </f:content>
+    </f:DynamicPage>
 </mvc:View>
