@@ -93,6 +93,11 @@
           "name": "BooksMain",
           "pattern": ":?query:",
           "target": "BooksMain"
+        },
+        {
+          "name": "BooksObjectPage",
+          "pattern": "Books({BooksKey}):?query:",
+          "target": "BooksObjectPage"
         }
       ],
       "targets": {
@@ -103,6 +108,24 @@
           "options": {
             "settings": {
               "viewName": "fpm.ext.main.view.Main",
+              "contextPath": "/Books",
+              "navigation": {
+                "Books": {
+                  "detail": {
+                    "route": "BooksObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "BooksObjectPage": {
+          "type": "Component",
+          "id": "BooksObjectPage",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "fpm.ext.main.view.ObjectPage",
               "contextPath": "/Books"
             }
           }

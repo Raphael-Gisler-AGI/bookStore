@@ -1,5 +1,5 @@
-sap.ui.define(["sap/fe/core/PageController"], function (PageController) {
+sap.ui.define(["./BaseController"], function (BaseController) {
   "use strict";
 
-  return PageController.extend("fpm.ext.main.controller.Main", {});
+  return BaseController.extend("fpm.ext.main.controller.Main", {});
 });
