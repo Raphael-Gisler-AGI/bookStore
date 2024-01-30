@@ -80,10 +80,14 @@
         "uri": "i18n/i18n.properties"
       }
     },
-    "resources": {
-      "css": []
+    "rootView": {
+      "id": "RootView",
+      "viewName": "fpm.ext.main.view.Root"
     },
     "routing": {
+      "config": {
+        "controlId": "appContent"
+      },
       "routes": [
         {
           "name": "BooksMain",
@@ -98,7 +102,7 @@
           "name": "sap.fe.core.fpm",
           "options": {
             "settings": {
-              "viewName": "fpm.ext.main.Main",
+              "viewName": "fpm.ext.main.view.Main",
               "contextPath": "/Books"
             }
           }

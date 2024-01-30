@@ -1,0 +1,27 @@
+<mvc:XMLView
+    id="RootView"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+    controllerName="fpm.ext.main.controller.Root" >
+    <tnt:ToolPage>
+        <tnt:header>
+            <f:ShellBar
+                title="{i18n>appTitle}"
+                secondTitle="{i18n>appDescription}" />
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation id="sideNavigation">
+                <tnt:NavigationList>
+                    <tnt:NavigationListItem
+                        key="BooksMain"
+                        text="Main" />
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <NavContainer id="appContent" />
+        </tnt:mainContents>
+    </tnt:ToolPage>
+</mvc:XMLView>

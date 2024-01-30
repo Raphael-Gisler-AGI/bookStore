@@ -1,0 +1,17 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:macros="sap.fe.macros"
+    controllerName="fpm.ext.main.controller.Main">
+    <Panel>
+        <macros:FilterBar
+            id="BooksFilterBar"
+            metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
+            liveMode="true" />
+        <macros:Table
+            id="BooksTable"
+            metaPath="@com.sap.vocabularies.UI.v1.LineItem"
+            filterBar="BooksFilterBar" />
+    </Panel>
+</mvc:View>

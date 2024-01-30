@@ -3,7 +3,7 @@
     xmlns:f="sap.f"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:macros="sap.fe.macros"
-    controllerName="fpm.ext.main.Main">
+    controllerName="fpm.ext.main.controller.ObjectPage">
     <f:DynamicPage>
         <f:title>
             <f:DynamicPageTitle>
@@ -17,16 +17,7 @@
         </f:title>
         <f:content>
             <Panel>
-                <macros:FilterBar
-                    id="BooksFilterBar"
-                    metaPath="@com.sap.vocabularies.UI.v1.SelectionFields"
-                    contextPath="/Books"
-                    liveMode="true" />
-                <macros:Table
-                    id="BooksTable"
-                    metaPath="@com.sap.vocabularies.UI.v1.LineItem"
-                    contextPath="/Books"
-                    filterBar="BooksFilterBar" />
+                <Text text="Object Page" />
             </Panel>
         </f:content>
     </f:DynamicPage>
