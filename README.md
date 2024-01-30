@@ -1,5 +1,13 @@
 # Getting Started
 
+To get started run these two commands
+```sh
+npm i cds-swagger-ui-express
+```
+```sh
+cds deploy
+```
+
 Welcome to your new project.
 
 It contains these folders and files, following our recommended project layout:
