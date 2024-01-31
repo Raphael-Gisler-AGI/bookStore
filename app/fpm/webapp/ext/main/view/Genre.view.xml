@@ -1,0 +1,24 @@
+<mvc:XMLView
+    xmlns:m="sap.m"
+    xmlns="sap.uxap"
+    xmlns:macros="sap.fe.macros"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="fpm.ext.main.controller.Genre">
+    <ObjectPageLayout>
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:Title text="{name}" />
+                </expandedHeading>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+        <sections>
+            <ObjectPageSection>
+                <ObjectPageSubSection>
+                    <macros:Table
+                        metaPath="@com.sap.vocabularies.UI.v1.LineItem" />
+                </ObjectPageSubSection>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</mvc:XMLView>

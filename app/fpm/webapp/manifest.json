@@ -44,7 +44,7 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
+    "flexEnabled": false,
     "dependencies": {
       "minUI5Version": "1.120.4",
       "libs": {
@@ -103,6 +103,11 @@
           "name": "BooksObjectPage",
           "pattern": "Books({BooksKey}):?query:",
           "target": "BooksObjectPage"
+        },
+        {
+          "name": "GenresObjectPage",
+          "pattern": "Genres({GenresKey}):?query:",
+          "target": "GenresObjectPage"
         }
       ],
       "targets": {
@@ -131,11 +136,11 @@
           "options": {
             "settings": {
               "viewName": "fpm.ext.main.view.Genres",
-              "contextPath": "/Books",
+              "contextPath": "/Genres",
               "navigation": {
-                "Books": {
+                "Genres": {
                   "detail": {
-                    "route": "BooksObjectPage"
+                    "route": "GenresObjectPage"
                   }
                 }
               }
@@ -150,6 +155,17 @@
             "settings": {
               "viewName": "fpm.ext.main.view.ObjectPage",
               "contextPath": "/Books"
+            }
+          }
+        },
+        "GenresObjectPage": {
+          "type": "Component",
+          "id": "GenresObjectPage",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "fpm.ext.main.view.Genre",
+              "contextPath": "/Genres"
             }
           }
         }

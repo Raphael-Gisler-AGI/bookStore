@@ -3,7 +3,9 @@ using AdminService as service from '../../srv/admin-service';
 annotate service.Books with
 @(
     UI: {
-        SelectionFields: [title],
+        SelectionFields: [
+            title
+        ],
         LineItem       : [
             {Value: title},
             {Value: genre.name}
@@ -24,9 +26,16 @@ annotate service.Books with
 };
 
 annotate service.Genres with
-@(UI: {
-    SelectionFields: [name],
-    LineItem       : [{Value: name}],
-}) {
+@(
+    UI       : {
+        SelectionFields: [name],
+        LineItem       : [{Value: name}],
+    },
+    UI.Facets: [{
+        $Type : 'UI.ReferenceFacet',
+        Label : 'heheheha',
+        Target: 'books/@UI.LineItem'
+    }]
+) {
     name @(title: '{i18n>genreName}')
 };
