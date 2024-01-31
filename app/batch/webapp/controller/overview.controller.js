@@ -9,7 +9,7 @@ sap.ui.define(
     "use strict";
 
     return Controller.extend("batch.controller.Overview", {
-      onInit: function () {
+      onInit() {
         this.byId("booksTable").bindItems({
           path: "/Books",
           template: this.byId("template"),

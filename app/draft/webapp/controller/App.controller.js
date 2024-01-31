@@ -6,7 +6,7 @@ sap.ui.define(
       "use strict";
   
       return BaseController.extend("draft.controller.App", {
-        onInit: function() {
+        onInit() {
         }
       });
     }

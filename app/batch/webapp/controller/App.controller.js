@@ -6,7 +6,7 @@ sap.ui.define(
       "use strict";
   
       return BaseController.extend("batch.controller.App", {
-        onInit: function() {
+        onInit() {
         }
       });
     }
