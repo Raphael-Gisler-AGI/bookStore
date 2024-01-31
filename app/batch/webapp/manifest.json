@@ -111,8 +111,8 @@
           "viewType": "XML",
           "transition": "slide",
           "clearControlAggregation": false,
-          "viewId": "Overview",
-          "viewName": "Overview"
+          "viewId": "overview",
+          "viewName": "overview"
         }
       }
     },
